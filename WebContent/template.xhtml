@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+					  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:rich="http://richfaces.org/rich">
+	
+	
+<head>
+
+<style>
+.topo{
+	
+	margin: auto;
+    padding: 1px 0px 20px 20px;
+    background-color: #4682B4;
+    color: #fff;
+    font-weight: bold;
+    height: 30px;
+    vertical-align: middle;
+}	
+
+conteudoPagina{
+	padding-top:50px;
+}
+</style>
+	
+<ui:insert name="headHtml">
+	<div class="topo">	
+		<p>Sistema de Gerenciamento de Internação</p>
+	</div>
+</ui:insert>
+
+<!-- template.xhtml -->
+
+<!-- 
+		Prova elaborada por Daniel Oliveira, para avaliação dos candidatos ao projeto Vitae.
+		Fortaleza, 07/01/2020. 
+	-->
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+
+<title>SISTEMA DE PACIENTES</title>
+
+<link rel="stylesheet" type="text/css" href="CSS/style.css" />
+
+</head>
+
+<body style="background-color: #FFF;">
+
+	<!-- CONTEUDO -->
+	<div id="conteudoGeral">
+		<div id="conteudoPagina">
+
+			<h:form id="form">
+				<rich:toolBar height="26px">				
+					<rich:dropDownMenu mode="ajax">
+						<f:facet name="label">
+							<h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+								style="vertical-align:middle">
+								<h:outputText value="Sistema" />
+							</h:panelGrid>
+						</f:facet>
+						<rich:menuItem mode="client" action="menu">
+							<h:outputText value="Início" />
+						</rich:menuItem>
+						<rich:menuItem mode="client" action="sobre">
+							<h:outputText value="Sobre" />
+						</rich:menuItem>
+					</rich:dropDownMenu>
+					
+					<rich:dropDownMenu mode="ajax">
+						<f:facet name="label">
+							<h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+								style="vertical-align:middle">
+								<h:outputText value="Cadastros" />
+							</h:panelGrid>
+						</f:facet>
+						<rich:menuItem mode="client" action="clinica">
+							<h:outputText value="Clinica" />
+						</rich:menuItem>
+						<rich:menuItem mode="client" action="leito">
+							<h:outputText value="Leito" />
+						</rich:menuItem>
+
+						<rich:menuItem mode="client" action="paciente">
+							<h:outputText value="Paciente" />
+						</rich:menuItem>
+					</rich:dropDownMenu>
+
+					<rich:dropDownMenu mode="ajax">
+						<f:facet name="label">
+							<h:panelGrid cellpadding="0" cellspacing="0" columns="2"
+								style="vertical-align:middle">
+								<h:outputText value="Internação" />
+							</h:panelGrid>
+						</f:facet>
+						<rich:menuItem mode="client"
+							onclick="document.location.href='http://richfaces.org/'">
+							<h:outputText value="Localizar Leito" />
+						</rich:menuItem>
+					</rich:dropDownMenu>
+				</rich:toolBar>
+			</h:form>
+
+			<ui:insert name="conteudo">
+
+			</ui:insert>
+
+		</div>
+	</div>
+	<br clear="all" />
+
+</body>
+</html>

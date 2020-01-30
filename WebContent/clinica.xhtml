@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:rich="http://richfaces.org/rich" template="template.xhtml">
+
+	<ui:define name="conteudo">
+		<h5>Cadastro de Clínica</h5>
+
+		<rich:panel header="Filtros de Pesquisa">
+			<h:outputLabel value="Nome: " for="parName" />
+			<h:inputText value="" id="parName" />
+
+			<a4j:commandButton value="pesquisar" />
+
+		</rich:panel>
+
+		<rich:dataTable var="record">
+			<rich:column>
+				<h:outputText value="Código" />
+				<f:facet name="footer">
+					<div />
+				</f:facet>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Código" >
+					
+				</h:outputText>
+				<f:facet name="footer">
+					<h:outputText value="#{record.totalMeals}">
+						<f:convertNumber pattern="$####.00" />
+					</h:outputText>
+				</f:facet>
+			</rich:column>
+			<rich:column>
+				<h:outputText value="Código" >
+					
+				</h:outputText>
+				<f:facet name="footer">
+					<h:outputText value="#{record.totalHotels}">
+						
+					</h:outputText>
+				</f:facet>
+			</rich:column>
+
+			<rich:column>
+				<h:outputText value="#{expense.transport}">
+					<f:convertNumber pattern="$####.00" />
+				</h:outputText>
+				<f:facet name="footer">
+					<h:outputText value="#{record.totalTransport}">
+						<f:convertNumber pattern="$####.00" />
+					</h:outputText>
+				</f:facet>
+			</rich:column>
+			<rich:column>
+
+				<f:facet name="footer">
+					<h:outputText value="#{record.total}">
+						<f:convertNumber pattern="$####.00" />
+					</h:outputText>
+				</f:facet>
+			</rich:column>
+
+
+		</rich:dataTable>
+
+		<rich:panel header="Dados da Clínica">
+			<h:outputLabel value="Nome: " for="name" />
+			<h:inputText value="" id="name" />
+
+		</rich:panel>
+	</ui:define>
+</ui:composition>

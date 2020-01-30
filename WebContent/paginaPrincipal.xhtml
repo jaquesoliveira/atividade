@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+					  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+      xmlns:rich="http://richfaces.org/rich">
+
+<ui:composition template="template.xhtml">
+
+<ui:define name="headHtml">
+	<!-- paginaPrincipal.xhtml -->
+</ui:define>
+
+<ui:define name="conteudo">
+	<!-- 
+		Prova elaborada por Daniel Oliveira, para avaliação dos candidatos ao projeto Vitae.
+		Fortaleza, 07/01/2020. 
+	-->  
+	<a4j:keepAlive beanName="paginaPrincipalBean" />
+	
+   	<h:form id="formPaginaPrincipal" >
+   	
+   		<rich:panel header="Teste SESA" style="width: auto">
+   	
+   			<h2>Coloque seu nome completo aqui</h2>
+   			
+   			<p>
+   				<ul>
+   					<li>Criar um CRUD conforme diagrama de classes abaixo.</li>
+   					
+   					<li>Projeto deve ser feito com JSF 1.2, RichFaces 3.3, JPA 2.0 (Hibernate 3.3) e banco PostgreSQL 8.4 ou superior.</li>
+   					
+   					<li>As bibliotecas e arquivos de configuração já estão no projeto.</li>
+   					
+   					<li>Será avaliado a organização dos pacotes, qualidade do código, uso de padrões de projeto, etc.</li>
+   					
+   					<li>Ao terminar enviar aplicação em formato zip e scripts do banco em anexo.</li>
+   					
+   				</ul>
+   			</p>
+   			
+   			<br/><br />
+   			
+   			<t:graphicImage url="IMG/diagrama-prova-SESA.PNG"/>
+   			
+   			<p>
+   				- Links úteis:
+   				
+   				<ul>
+   					<li><a href="https://docs.jboss.org/richfaces/latest_3_3_X/en/devguide/html/">Manual RichFaces</a></li>
+
+					<li><a href="https://docs.jboss.org/richfaces/latest_3_3_X/en/devguide/pdf/richfaces_reference.pdf">Manual RichFaces HTML</a></li>
+                    
+					<li><a href="http://showcase.richfaces.org/richfaces/component-sample.jsf">Show case</a></li>
+   				</ul>
+   				
+   			    (obs: a versão do show case é mais atual que a versão do projeto, portanto algumas coisas podem não funcionar da mesma maneira).
+   			</p>
+   			
+   			<div style="width: 100%; text-align: right;">
+				<a4j:commandButton value="Chamar seu CRUD" action="menu" />
+						 <a href="menu.xhtml">Manual RichFaces</a>			
+			</div>				
+		</rich:panel>
+   	</h:form>
+   	
+	</ui:define>
+</ui:composition>
+</html>
