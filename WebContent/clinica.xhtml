@@ -11,70 +11,25 @@
 	xmlns:rich="http://richfaces.org/rich" template="template.xhtml">
 
 	<ui:define name="conteudo">
-		<h5>Cadastro de Clínica</h5>
 
-		<rich:panel header="Filtros de Pesquisa">
-			<h:outputLabel value="Nome: " for="parName" />
-			<h:inputText value="" id="parName" />
+		<rich:panel>
 
-			<a4j:commandButton value="pesquisar" />
+			<a4j:outputPanel>
+				<h3>Clínicas</h3>
+			</a4j:outputPanel>
 
-		</rich:panel>
+			<a4j:outputPanel rendered="#{clinicaBean.ctrlTelaCadastrar}">
+				<ui:include src="/clinicaCad.xhtml" />
+			</a4j:outputPanel>
 
-		<rich:dataTable var="record">
-			<rich:column>
-				<h:outputText value="Código" />
-				<f:facet name="footer">
-					<div />
-				</f:facet>
-			</rich:column>
-			<rich:column>
-				<h:outputText value="Código" >
-					
-				</h:outputText>
-				<f:facet name="footer">
-					<h:outputText value="#{record.totalMeals}">
-						<f:convertNumber pattern="$####.00" />
-					</h:outputText>
-				</f:facet>
-			</rich:column>
-			<rich:column>
-				<h:outputText value="Código" >
-					
-				</h:outputText>
-				<f:facet name="footer">
-					<h:outputText value="#{record.totalHotels}">
-						
-					</h:outputText>
-				</f:facet>
-			</rich:column>
+			<a4j:outputPanel rendered="#{clinicaBean.ctrlTelaConsultar}">
+				<ui:include src="/clinicaCon.xhtml" />
+			</a4j:outputPanel>
 
-			<rich:column>
-				<h:outputText value="#{expense.transport}">
-					<f:convertNumber pattern="$####.00" />
-				</h:outputText>
-				<f:facet name="footer">
-					<h:outputText value="#{record.totalTransport}">
-						<f:convertNumber pattern="$####.00" />
-					</h:outputText>
-				</f:facet>
-			</rich:column>
-			<rich:column>
-
-				<f:facet name="footer">
-					<h:outputText value="#{record.total}">
-						<f:convertNumber pattern="$####.00" />
-					</h:outputText>
-				</f:facet>
-			</rich:column>
-
-
-		</rich:dataTable>
-
-		<rich:panel header="Dados da Clínica">
-			<h:outputLabel value="Nome: " for="name" />
-			<h:inputText value="" id="name" />
-
+			<a4j:outputPanel rendered="#{clinicaBean.ctrlTelaVisualizar}">
+				<ui:include src="/clinicaVer.xhtml" />
+			</a4j:outputPanel>
+			
 		</rich:panel>
 	</ui:define>
 </ui:composition>

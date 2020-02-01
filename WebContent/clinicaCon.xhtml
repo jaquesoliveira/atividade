@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<br />
+	<rich:panel header="Filtros de Pesquisa">
+		<h:outputLabel value="Nome: " for="parName" />
+		<h:inputText value="" id="parName" />
+
+		<a4j:commandButton value="pesquisar" />
+	</rich:panel>
+
+	<h:form id="teste">
+		<rich:dataTable var="cli" width="100%"
+			value="#{clinicaBean.lstClinica}" rows="10">
+
+			<f:facet name="header">
+				<rich:columnGroup>
+					<rich:column width="20%">
+						<h:outputText value="Código" />
+					</rich:column>
+					<rich:column>
+						<h:outputText value="Nome" />
+					</rich:column>
+
+					<rich:column colspan="2" width="10%">
+						<h:outputText value="Ações" />
+					</rich:column>
+				</rich:columnGroup>
+			</f:facet>
+
+			<rich:column>
+				<h:outputText value="#{cli.idClinica}" />
+			</rich:column>
+			<rich:column>
+				<h:outputText value="#{cli.nomeClinica}" />
+			</rich:column>
+
+			<rich:column>
+				<a4j:commandButton value="Excluir" /> &nbsp;
+				<a4j:commandButton value="Alterar" />
+			</rich:column>
+
+			<f:facet name="footer">
+				<rich:datascroller />
+			</f:facet>
+
+		</rich:dataTable>
+
+	</h:form>
+
+	<br />
+	<a4j:commandButton value="Adicionar Clínica" action="#{clinicaBean.cadastrarClinica()}" render=":conteudoGeral"  />
+
+</ui:composition>

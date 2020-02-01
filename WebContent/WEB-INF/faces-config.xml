@@ -10,6 +10,12 @@
 		<managed-bean-class>br.com.atividade.paginaprincipal.PaginaPrincipalBean</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>clinicaBean</managed-bean-name>
+		<managed-bean-class>br.com.atividade.controlbean.ClinicaBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 
 	<navigation-rule>
 		<display-name>principal</display-name>

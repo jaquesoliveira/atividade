@@ -27,6 +27,17 @@
 conteudoPagina{
 	padding-top:50px;
 }
+
+.conteudoGeral{
+	color:#333 !important;
+	background-color: rgba(10,23,55,0.5) !important;
+	background-image: url("imagens/bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	
+	min-height:700px;
+	background-position: center;
+}
 </style>
 	
 <ui:insert name="headHtml">
@@ -55,10 +66,10 @@ conteudoPagina{
 <body style="background-color: #FFF;">
 
 	<!-- CONTEUDO -->
-	<div id="conteudoGeral">
+	<div id="conteudoGeral" class="conteudoGeral">
 		<div id="conteudoPagina">
 
-			<h:form id="form">
+			<h:form>
 				<rich:toolBar height="26px">				
 					<rich:dropDownMenu mode="ajax">
 						<f:facet name="label">
