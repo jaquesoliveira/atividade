@@ -5,5 +5,28 @@
 	xmlns:a4j="http://richfaces.org/a4j"
 	xmlns:t="http://myfaces.apache.org/tomahawk"
 	xmlns:rich="http://richfaces.org/rich">
-	
-	</ui:composition>
+
+	<h:form>
+		<rich:panel header="Cadastro Clínica">
+			<h:outputLabel value="Nome Clínica " />
+			<h:outputText value="" />			
+			<br /><br />
+			<hr />
+
+			<table>
+				<tr>
+					<td>
+						<a4j:commandButton value="Cancelar" action="clinica"
+							actionListener="#{clinicaBean.pesquisar()}" />
+					</td>
+					<td>
+						<a4j:commandButton value="Salvar" action="clinica"
+							actionListener="#{clinicaBean.salvar}" />
+					</td>
+				</tr>
+			</table>
+
+		</rich:panel>
+	</h:form>
+
+</ui:composition>

@@ -1,69 +1,60 @@
 package br.com.atividade.controlbean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.faces.event.ActionEvent;
+
+import br.com.atividade.api.CrudBean;
 import br.com.atividade.model.BtpClinica;
 
-public class ClinicaBean implements Serializable{
-	
-	/**
-	 * 
-	 */
+public class ClinicaBean extends CrudBean<BtpClinica> implements Serializable{	
+
 	private static final long serialVersionUID = 1L;
 	
 	private List<BtpClinica> lstClinica;
-	
-	private boolean ctrlTelaConsultar;
-	private boolean ctrlTelaCadastrar;
-	private boolean ctrlTelaVisualizar;
-	private boolean ctrlTelaAlterar;
+	private BtpClinica btpClinica;
 	
 	
-	public ClinicaBean() {		
-		lstClinica = new ArrayList<BtpClinica>();
-		ctrlTelaConsultar = true;
-	}	
+	public ClinicaBean() {
+		super();
+		btpClinica = new BtpClinica();
+		//lstClinica = new ArrayList<BtpClinica>()		
+	}
+
+	@PostConstruct
+	private void init() {
+		setEntidade(btpClinica);
+		lstClinica = consultar(null);
+	}
 	
 	public List<BtpClinica> getLstClinica(){
-		
-		lstClinica.clear();
-		
-		lstClinica.add(new BtpClinica(1L, "HapClinica Dom Manoel"));
-		
-		lstClinica.add(new BtpClinica(2L, "Clinica Unimed Rodrigues Jr."));
-
-		lstClinica.add(new BtpClinica(3L, "Clinica Amil"));
-		
-		lstClinica.add(new BtpClinica(4L, "Poli Clinica"));
 		return lstClinica;		
 	}
+
+	public BtpClinica getBtpClinica() {
+		return btpClinica;
+	}
+
+	public void setBtpClinica(BtpClinica btpClinica) {
+		this.btpClinica = btpClinica;
+	}
 	
-	public void cadastrarClinica() {
-		resetControlesDeTela();
-		ctrlTelaCadastrar = true;
+	@Override
+	public void salvar(ActionEvent event) {
+		
+		super.salvar(event);
+		
+		btpClinica = new BtpClinica();
 	}
-
-	public boolean isCtrlTelaConsultar() {
-		return ctrlTelaConsultar;
-	}
-
-	public boolean isCtrlTelaCadastrar() {
-		return ctrlTelaCadastrar;
-	}
-	public boolean isCtrlTelaVisualizar() {
-		return ctrlTelaVisualizar;
+	
+	@Override
+	public List<BtpClinica> consultar(ActionEvent event) {
+		
+		lstClinica = super.consultar(event);
+		return lstClinica;
+		
 	}	
-
-	public boolean isCtrlTelaAlterar() {
-		return ctrlTelaAlterar;
-	}
 	
-	private void resetControlesDeTela() {
-		ctrlTelaConsultar = false;
-		ctrlTelaCadastrar = false;
-		ctrlTelaVisualizar = false;
-		ctrlTelaAlterar = false;
-	}
 }

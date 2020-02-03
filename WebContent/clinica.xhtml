@@ -11,25 +11,29 @@
 	xmlns:rich="http://richfaces.org/rich" template="template.xhtml">
 
 	<ui:define name="conteudo">
+		
+		<a4j:keepAlive beanName="clinicaBean" />
 
-		<rich:panel>
-
+		<rich:panel id="telas">
+		
 			<a4j:outputPanel>
 				<h3>Clínicas</h3>
 			</a4j:outputPanel>
 
-			<a4j:outputPanel rendered="#{clinicaBean.ctrlTelaCadastrar}">
-				<ui:include src="/clinicaCad.xhtml" />
-			</a4j:outputPanel>
-
-			<a4j:outputPanel rendered="#{clinicaBean.ctrlTelaConsultar}">
+			<a4j:outputPanel  rendered="#{clinicaBean.pesquisar}"
+				id="consultar" >
 				<ui:include src="/clinicaCon.xhtml" />
 			</a4j:outputPanel>
 
-			<a4j:outputPanel rendered="#{clinicaBean.ctrlTelaVisualizar}">
-				<ui:include src="/clinicaVer.xhtml" />
+			<a4j:outputPanel  rendered="#{clinicaBean.incluir || clinicaBean.editar}"	
+				id="cadastrar">
+				<ui:include src="/clinicaCad.xhtml" />
 			</a4j:outputPanel>
 			
+			<a4j:outputPanel rendered="#{clinicaBean.visualizar}">
+				<ui:include src="/clinicaVer.xhtml" />
+			</a4j:outputPanel>
+
 		</rich:panel>
 	</ui:define>
 </ui:composition>

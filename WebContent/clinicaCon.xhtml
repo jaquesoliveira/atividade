@@ -12,13 +12,17 @@
 
 	<br />
 	<rich:panel header="Filtros de Pesquisa">
-		<h:outputLabel value="Nome: " for="parName" />
-		<h:inputText value="" id="parName" />
+		
 
-		<a4j:commandButton value="pesquisar" />
+		<h:form id="pesquisa">
+			<h:outputLabel value="Nome: " for="parName" />
+			<h:inputText value="#{clinicaBean.btpClinica.nomeClinica}" id="parName" />
+		
+			<a4j:commandButton value="pesquisar" actionListener="#{clinicaBean.consultar}" reRender="form" />		
+		</h:form>
 	</rich:panel>
 
-	<h:form id="teste">
+	<h:form id="form"><br />
 		<rich:dataTable var="cli" width="100%"
 			value="#{clinicaBean.lstClinica}" rows="10">
 
@@ -45,19 +49,24 @@
 			</rich:column>
 
 			<rich:column>
-				<a4j:commandButton value="Excluir" /> &nbsp;
-				<a4j:commandButton value="Alterar" />
+				<a4j:commandButton value="Excluir" action="clinica" actionListener="#{clinicaBean.excluir}">
+					<f:setPropertyActionListener
+							target="#{clinicaBean.entidadeSelecionada}" value="#{cli}" />
+				</a4j:commandButton> &nbsp;
+				<a4j:commandButton value="Alterar"  action="clinica" actionListener="#{clinicaBean.prepararaLteracao()}">
+					<f:setPropertyActionListener
+							target="#{clinicaBean.entidadeSelecionada}" value="#{cli}" />
+				</a4j:commandButton>
 			</rich:column>
 
 			<f:facet name="footer">
 				<rich:datascroller />
 			</f:facet>
-
 		</rich:dataTable>
 
+		<br />
+		<a4j:commandButton value="Adicionar Clínica" action="clinica"
+			actionListener="#{clinicaBean.inserir()}" reRender="form"/>
+
 	</h:form>
-
-	<br />
-	<a4j:commandButton value="Adicionar Clínica" action="#{clinicaBean.cadastrarClinica()}" render=":conteudoGeral"  />
-
 </ui:composition>

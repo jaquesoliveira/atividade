@@ -7,11 +7,12 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
 
 		<properties>
 			
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/treinamento" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/medpoint" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="postgres" />
+			<property name="javax.persistence.jdbc.password" value="123456" />
 			
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />			
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.default_schema" value="atividade"/>			
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 
 			<property name="hibernate.connection.provider_class" value="org.hibernate.connection.C3P0ConnectionProvider" />	

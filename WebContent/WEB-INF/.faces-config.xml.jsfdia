@@ -42,4 +42,13 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#clinica.xhtml" PATH="/clinica.xhtml"
   SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:5" PATH="*" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:5" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="clinicaCad::#clinicaCad.xhtml" NAME="output"
+    PATH="/clinicaCad.xhtml" TARGET="rules:#clinicaCad.xhtml"
+    TITLE="clinicaCad" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#clinicaCad.xhtml" PATH="/clinicaCad.xhtml"
+  SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
